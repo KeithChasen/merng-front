@@ -9,7 +9,7 @@ function MenuBar() {
 
     return (
       <div>
-        <Menu pointing secondary>
+        <Menu pointing secondary size='massive' color='teal'>
           <Menu.Item
             name='home'
             active={activeItem === 'home'}
