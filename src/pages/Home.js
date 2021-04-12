@@ -6,12 +6,11 @@ import { Grid } from 'semantic-ui-react'
 import PostCard from "../components/PostCard";
 
 function Home() {
-  const { loading, data } = useQuery(FETCH_POSTS_QUERY);
-
+  const { loading, data: { getPosts: posts } = {} } = useQuery(FETCH_POSTS_QUERY);
   const content =
     loading ?
       <h1>Posts are loading...</h1> :
-      data.getPosts && data.getPosts.map(post =>  <Grid.Column key={post.id}><PostCard post={post} /></Grid.Column>);
+      posts && posts.map(post =>  <Grid.Column key={post.id}><PostCard post={post} /></Grid.Column>);
 
   return (
     <Grid columns={3} divided>
