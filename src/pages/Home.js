@@ -10,7 +10,11 @@ function Home() {
   const content =
     loading ?
       <h1>Posts are loading...</h1> :
-      posts && posts.map(post =>  <Grid.Column key={post.id}><PostCard post={post} /></Grid.Column>);
+      posts && posts.map(post =>
+        <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
+          <PostCard post={post} />
+        </Grid.Column>
+      );
 
   return (
     <Grid columns={3} divided>
